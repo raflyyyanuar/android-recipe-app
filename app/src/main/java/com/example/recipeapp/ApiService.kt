@@ -9,7 +9,7 @@ private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-val recipeService = retrofit.create(ApiService::class.java)
+val mealdbApi = retrofit.create(ApiService::class.java)
 
 interface ApiService {
     @GET("categories.php")

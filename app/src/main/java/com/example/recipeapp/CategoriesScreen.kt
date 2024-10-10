@@ -11,10 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun CategoryScreen(
+fun CategoriesScreen(
     modifier: Modifier = Modifier,
 ) {
-    val categoryViewModel : MainViewModel= viewModel()
+    val categoryViewModel : MainViewModel = viewModel()
     val viewState by categoryViewModel.categoriesState
 
     Box(

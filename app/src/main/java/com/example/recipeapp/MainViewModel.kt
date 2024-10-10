@@ -17,7 +17,7 @@ class MainViewModel : ViewModel() {
     private fun fetchCategories() {
         viewModelScope.launch {
             try {
-                val response = recipeService.getCategories()
+                val response = mealdbApi.getCategories()
                 _categoriesState.value = _categoriesState.value.copy(
                     loading = false,
                     categories = response.categories,
