@@ -17,16 +17,21 @@ fun RecipeApp(navController: NavHostController) {
             CategoriesScreen(
                 viewState = viewState,
                 navigateToCategoryDetailsScreen = {
-                    navController.currentBackStackEntry?.savedStateHandle?.set("category", it)
+                    // Save to the CURRENT backstack a "category" key-value pair
+                    navController
+                        .currentBackStackEntry  // get the CURRENT backstack
+                        ?.savedStateHandle      // through the saved state
+                        ?.set("category", it)   // set a key-value pair
                     navController.navigate(Screen.CategoryDetailsScreen.route)
                 }
             )
         }
         composable(Screen.CategoryDetailsScreen.route) {
+            // Get from the PREVIOUS backstack the value of "category" key
             val category = navController
-                .previousBackStackEntry
-                ?.savedStateHandle
-                ?.get<Category>("category")
+                .previousBackStackEntry         // get the PREVIOUS backstack
+                ?.savedStateHandle              // through the saved state
+                ?.get<Category>("category")     // get the value
                 ?: Category("","","","")
 
             CategoryDetailScreen(
